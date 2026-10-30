@@ -1,62 +1,62 @@
+
 Rottenpotatoes::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb
+
+  # Settings specified here take precedence over
+  # those in config/application.rb.
 
   # Code is not reloaded between requests
   config.cache_classes = true
 
-  # Full error reports are disabled and caching is turned on
-  config.consider_all_requests_local       = false
+  # Disable detailed error reports and enable caching
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
+  # Load application code on boot
   config.eager_load = true
 
-  # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  # Allow Rails to serve precompiled static assets on Heroku
+  config.public_file_server.enabled =
+    ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  # Compress JavaScripts and CSS
+  # Compress JavaScript and CSS assets
   config.assets.js_compressor = :uglifier
 
-  # DO fallback to assets pipeline if a precompiled asset is missed
+  # Fallback to asset pipeline if necessary
   config.assets.compile = true
 
-  # Generate digests for assets URLs
+  # Generate digests for asset URLs
   config.assets.digest = true
 
-  # Defaults to Rails.root.join("public/assets")
-  # config.assets.manifest = YOUR_PATH
-
-  # Specifies the header that your server uses for sending files
-  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
-  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
-
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
-
-  # See everything in the log (default is :info)
-  # config.log_level = :debug
-
-  # Use a different logger for distributed setups
-  # config.logger = SyslogLogger.new
-
-  # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
-
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  # config.action_controller.asset_host = "http://assets.example.com"
-
-  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+  # Optional additional precompiled assets
   # config.assets.precompile += %w( search.js )
 
-  # Disable delivery errors, bad email addresses will be ignored
+  # File delivery configuration
+  # config.action_dispatch.x_sendfile_header = "X-Sendfile"
+  # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+
+  # SSL configuration
+  # config.force_ssl = true
+
+  # Production logging
+  config.log_level = :info
+
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
+    config.logger = ActiveSupport::Logger.new($stdout)
+  end
+
+  # Optional cache store
+  # config.cache_store = :mem_cache_store
+
+  # Optional asset host
+  # config.action_controller.asset_host = "http://assets.example.com"
+
+  # Ignore email delivery errors if configured
   # config.action_mailer.raise_delivery_errors = false
 
-  # Enable threaded mode
-  # config.threadsafe!
-
-  # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
-  # the I18n.default_locale when a translation can not be found)
+  # Enable locale fallbacks
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
 end
