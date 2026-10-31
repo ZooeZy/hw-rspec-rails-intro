@@ -13,6 +13,7 @@ Rottenpotatoes::Application.configure do
 
   # Load application code on boot
   config.eager_load = true
+  config.active_storage.service = :local
 
   # Allow Rails to serve precompiled static assets on Heroku
   config.public_file_server.enabled =
