@@ -19,7 +19,7 @@ Rottenpotatoes::Application.configure do
     ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScript and CSS assets
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = nil
 
   # Fallback to asset pipeline if necessary
   config.assets.compile = true
